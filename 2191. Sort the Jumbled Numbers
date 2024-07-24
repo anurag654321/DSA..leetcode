@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> sortJumbled(vector<int>& m, vector<int>& nums) {
+        vector<int> ans;
+        vector<pair<int, int>> temp;
+        
+        for (int i = 0; i < nums.size(); ++i) {
+            int curr = nums[i];
+            int real = 0;
+            int p = 1;
+
+            
+            if (curr == 0) {
+                real = m[0];
+            } else {
+                while (curr > 0) {
+                    int n = curr % 10;
+                    real = m[n] * p + real;
+                    p *= 10;
+                   curr /= 10;
+                }
+            }
+
+            temp.push_back({real, i});
+        }
+
+        sort(temp.begin(), temp.end());
+
+        for (auto& l : temp) {
+            ans.push_back(nums[l.second]);
+        }
+        
+        return ans;
+    }
+};
