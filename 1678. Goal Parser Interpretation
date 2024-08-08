@@ -1,0 +1,35 @@
+class Solution {
+public:
+    string interpret(string c) {
+        string temp="";
+        string ans="";
+        for(auto it:c){
+            temp+=it;
+            if(temp=="G"){
+                ans+="G";
+                temp="";
+            }
+            else if(temp=="()"){
+                ans+="o";
+                temp="";
+            }
+            else if(temp=="(al)"){
+                ans+="al";
+                temp="";
+            }
+        }
+         if(temp=="G"){
+                ans+="G";
+                temp="";
+            }
+            else if(temp=="()"){
+                ans+="o";
+                temp="";
+            }
+            else if(temp=="(al)"){
+                ans+="al";
+                temp="";
+            }
+            return ans;
+    }
+};
